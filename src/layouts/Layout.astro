@@ -1,23 +1,31 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
-</html>
+---
+// src/layouts/Layout.astro
+import '../styles/global.css';
+const { title } = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <nav class="fixed top-0 left-0 w-full glass z-50 border-b-white/5">
+      <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+        <a href="/" class="font-bold text-2xl text-white tracking-tighter">LOGO</a>
+        <div class="flex items-center gap-6 text-sm text-gray-400">
+          <a href="#" class="hover:text-white">Work</a>
+          <a href="#" class="hover:text-white">About</a>
+          <a href="/login" class="px-4 py-1.5 glass rounded-full text-white text-xs">Admin Portal</a>
+        </div>
+      </div>
+    </nav>
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+    <slot />
+
+    <footer class="max-w-6xl mx-auto px-6 py-10 text-center text-gray-700 text-xs border-t border-white/5 mt-20">
+      &copy; 2026 Eternal Studio. All rights reserved. <br/> Inspired by premium design principles.
+    </footer>
+  </body>
+</html>

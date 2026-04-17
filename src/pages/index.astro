@@ -1,11 +1,95 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Layout from "../layouts/Layout.astro";
+import GameCard from "../components/GameCard.astro";
+import { games } from "../data/Games";
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Home">
+  <main class="max-w-6xl mx-auto px-6 py-12 space-y-32">
+    <section class="relative pt-24 pb-16 text-center">
+      <div class="absolute inset-x-0 top-0 h-64 bg-brand/10 blur-[150px] -z-10">
+      </div>
+
+      <span
+        class="inline-block px-4 py-1 mb-10 text-xs font-medium tracking-wider uppercase glass rounded-full text-brand"
+      >
+        Available for New Opportunities
+      </span>
+
+      <div class="space-y-4 max-w-2xl mx-auto">
+        <div
+          class="w-24 h-24 mx-auto glass rounded-full glow-effect flex items-center justify-center mb-8 border border-white/10"
+        >
+          <span class="text-4xl">Foto</span>
+        </div>
+
+        <h1
+          class="text-6xl md:text-7xl font-extrabold tracking-tighter text-white leading-[0.95]"
+        >
+          Judges a book<br />by its <span class="text-brand">cover</span>...
+        </h1>
+        <p
+          class="justify-center text-xl md:text-2xl text-gray-400 font-normal leading-relaxed"
+        >
+          I'm a Game Developer<br />
+          currently building atmospheric experiences <a
+            href="#"
+            class="text-brand hover:underline">Eternal Studio</a
+          >.
+        </p>
+      </div>
+    </section>
+
+    <section class="max-w-3xl mx-auto space-y-6">
+      <h2 class="text-2xl font-bold tracking-tight text-white mb-8">
+        About Me
+      </h2>
+      <p class="text-lg text-gray-400 leading-relaxed">
+        A passionate creator in the gaming industry, merging powerful code with
+        deep narrative. I specialize in <span class="text-white"
+          >atmospheric gameplay</span
+        > and tight, intuitive mechanics. My goal is to build digital worlds that
+        resonate emotionally with players, using a perfect blend of modern tech stack.
+      </p>
+    </section>
+
+    <section class="space-y-24">
+      <h3
+        class="text-3xl font-extrabold tracking-tighter text-white mb-10 uppercase italic"
+      >
+        Selected Works
+      </h3>
+
+      {
+        games.map((game, index) => (
+          <GameCard
+            title={game.title}
+            engine={game.engine}
+            genre={game.genre}
+            description={game.description}
+            thumbnail={game.thumbnail_url}
+            link={game.game_link}
+            reverse={index % 2 !== 0}
+          />
+        ))
+      }
+    </section>
+
+    <section
+      class="max-w-2xl mx-auto text-center py-20 border-t border-white/5 space-y-8"
+    >
+      <h3 class="text-4xl font-extrabold tracking-tight text-white">
+        Let's build something epic together.
+      </h3>
+      <p class="text-gray-400">
+        Reach out for collaborations, project inquiries, or just to talk about
+        the latest indie game trends.
+      </p>
+      <a
+        href="mailto:your@email.com"
+        class="inline-block px-12 py-4 bg-brand rounded-full text-white font-bold hover:bg-brand/90 transition-colors"
+        >adisalamramdani1290@gmail.com</a
+      >
+    </section>
+  </main>
 </Layout>

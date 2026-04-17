@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+/* Kustomisasi Tema v4 */
+@theme {
+  --color-brand: #a855f7; /* Ungu Utama */
+  --color-background: #0d0a1a; /* Background Super Gelap Kebiruan */
+  --color-glass: rgba(255, 255, 255, 0.03); /* Glassmorphism transparan */
+  --color-glow: rgba(168, 85, 247, 0.15); /* Cahaya neon transparan */
+}
+
+/* Reset Dasar */
+body {
+  background-color: var(--color-background);
+  color: rgba(255, 255, 255, 0.85); /* Teks sedikit redup */
+}
+
+/* Utilitas Cahaya Latar (Dibutuhkan untuk Hero) */
+.glow-effect {
+  box-shadow: 0 0 100px var(--color-glow);
+}
+
+.glass {
+  background: var(--color-glass);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
